@@ -9,6 +9,16 @@ from collections import deque
 # =========================
 
 def dfs(grafo, inicio, meta):
+    """Implemtenación del algoritmo DFS
+
+    Args:
+        grafo (dict): Grafo representado como un diccionario de adyacencia
+        inicio (tuple): Punto de inicio en el grafo
+        meta (tuple): Punto de meta en el grafo
+
+    Returns:
+        list: Camino desde inicio hasta meta, o None si no hay solución
+    """
     pila = [(inicio, [inicio])]
     visitados = set()
     
@@ -33,6 +43,16 @@ def dfs(grafo, inicio, meta):
 # =========================
 
 def bfs(grafo, inicio, meta):
+    """Implementación del algoritmo BFS
+
+    Args:
+        grafo (dict): Grafo representado como un diccionario de adyacencia
+        inicio (tuple): Punto de inicio en el grafo
+        meta (tuple): Punto de meta en el grafo
+
+    Returns:
+        list: Camino desde inicio hasta meta, o None si no hay solución
+    """
     cola = deque([(inicio, [inicio])])
     visitados = set()
     
@@ -57,6 +77,15 @@ def bfs(grafo, inicio, meta):
 # =========================
 
 def heuristica(nodo, meta):
+    """Función que calcula el valor de la heurística Manhattan entre dos puntos
+
+    Args:
+        nodo (tuple): Coordenadas del nodo actual
+        meta (tuple): Coordenadas del nodo meta
+
+    Returns:
+        int: Valor de la heurística Manhattan entre los dos puntos
+    """
     return abs(nodo[0] - meta[0]) + abs(nodo[1] - meta[1])
 
 
@@ -65,6 +94,18 @@ def heuristica(nodo, meta):
 # =========================
 
 def a_estrella(grafo, inicio, meta):
+    """Implementación del algoritmo A*
+
+    Args:
+        grafo (dict): Grafo representado como un diccionario de adyacencia
+        inicio (tuple): Punto de inicio en el grafo
+        meta (tuple): Punto de meta en el grafo
+
+    Returns:
+        list: Camino desde inicio hasta meta, o None si no hay solución
+    """
+
+    # Uso de una cola de prioridad para manejar los nodos a explorar, priorizando aquellos con menor costo total (costo g + heurística)
     cola_prioridad = []
     heapq.heappush(cola_prioridad, (0, inicio))
     
