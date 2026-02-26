@@ -2,7 +2,7 @@
 
 from grafo import encontrar_puntos, matriz_a_grafo
 from algoritmos import dfs, bfs, a_estrella
-from dibujar_laberinto import dibujar_laberinto
+from dibujar_laberinto import dibujar_laberinto, dibujar_recorrido
 
 def imprimir_resultado(nombre, camino):
     """Función que imprime el recorrido que ha tomado el algoritmo para llegar al resultado final
@@ -34,9 +34,9 @@ def main():
         [0,1,1,1,1,0,0,0,1,0],
         [0,1,0,0,0,1,0,1,1,1],
         [0,1,0,1,0,1,0,1,0,1],
-        [0,1,0,1,0,1,0,0,1,1],
-        [0,0,0,1,0,0,0,0,1,0],
-        [1,1,1,1,1,3,1,0,1,1],
+        [0,1,0,1,3,1,0,0,1,1],
+        [0,0,0,0,0,0,0,0,1,0],
+        [1,1,1,1,1,0,1,0,1,1],
         [1,0,0,0,0,1,1,1,0,1],
         [1,1,1,1,1,1,0,1,0,1],
         [1,0,1,0,1,0,1,1,1,1]
@@ -59,9 +59,18 @@ def main():
     dibujar_laberinto(laberinto, N)
 
     # Ejecutar los algoritmos de búsqueda y mostrar los resultados
-    imprimir_resultado("DFS", dfs(grafo, inicio, meta))
-    imprimir_resultado("BFS", bfs(grafo, inicio, meta))
-    imprimir_resultado("A*", a_estrella(grafo, inicio, meta))
+    camino_dfs = dfs(grafo, inicio, meta)
+    camino_bfs = bfs(grafo, inicio, meta)
+    camino_a_estrella = a_estrella(grafo, inicio, meta)
+    
+    imprimir_resultado("DFS", camino_dfs)
+    imprimir_resultado("BFS", camino_bfs)
+    imprimir_resultado("A*", camino_a_estrella)
+    
+    # Dibujar los recorridos de cada algoritmo
+    dibujar_recorrido(laberinto, N, camino_dfs, "DFS")
+    dibujar_recorrido(laberinto, N, camino_bfs, "BFS")
+    dibujar_recorrido(laberinto, N, camino_a_estrella, "A_estrella")
 
 
 if __name__ == "__main__":
