@@ -12,7 +12,7 @@ Para este proyecto se usan los algoritmos de BFS, DFS y A* con heurística imple
 #### `main.py`
 Archivo con el flujo principal del programa.<br>
 Aquí se llaman las diferentes funciones que se tienen en otros archivos, los cuales permiten ver como diferentes algoritmos se comportan en un mismo problema.<br>
-En este archivo reside la variable la cual contiene el `laberinto` a solucionar
+En este archivo reside la función principal con la lógica para tomar el laberinto desde un archivo de texto y es almacenado en la variable `laberinto`
 
 #### `algoritmos.py`
 Archivo con las implementaciones de los diferentes algoritmos.<br>
