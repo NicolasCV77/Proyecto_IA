@@ -29,18 +29,13 @@ def main():
     # 1: pared
     # 2: punto de inicio
     # 3: punto de meta
-    laberinto = [
-        [2,0,0,0,0,0,1,1,1,1],
-        [0,1,1,1,1,0,0,0,1,0],
-        [0,1,0,0,0,1,0,1,1,1],
-        [0,1,0,1,0,1,0,1,0,1],
-        [0,1,0,1,3,1,0,0,1,1],
-        [0,0,0,0,0,0,0,0,1,0],
-        [1,1,1,1,1,0,1,0,1,1],
-        [1,0,0,0,0,1,1,1,0,1],
-        [1,1,1,1,1,1,0,1,0,1],
-        [1,0,1,0,1,0,1,1,1,1]
-    ]
+
+    # Cargar el laberinto desde el archivo laberinto.txt
+    laberinto = []
+    with open("laberinto.txt", "r") as f:
+        for linea in f:
+            fila = [int(x) for x in linea.strip().split(",")]
+            laberinto.append(fila)
 
     # Tamaño del laberinto (Debe de ser cuadrado)
     N = len(laberinto)
