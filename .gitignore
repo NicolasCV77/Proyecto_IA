@@ -1,2 +1,25 @@
+# Entornos virtuales
+venv/
+.venv/
+env/
+.env/
+ENV/
+
+# Archivos compilados
+__pycache__/
 *.pyc
-*.png
+*.pyo
+*.pyd
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Configuración de VSCode
+.vscode/
+
+# Archivos de entorno
+*.env
+
+# Archivos de imagenes 
+*.png 

@@ -1,5 +1,6 @@
 # grafo.py
 
+# Funcion para encontrar los puntos de inicio y meta en el laberinto.
 def encontrar_puntos(laberinto, N):
     """Función que encuentra los puntos de inicio y meta en el laberinto
 
@@ -23,6 +24,7 @@ def encontrar_puntos(laberinto, N):
     return inicio, meta
 
 
+# Función para convertir la matriz del laberinto en un grafo representado como una matriz de adyacencia.
 def matriz_a_grafo(laberinto, N):
     """Función que toma la lista del laberinto y la convierte en un grafo representado como un diccionario de adyacencia
 
